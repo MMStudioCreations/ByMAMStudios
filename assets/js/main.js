@@ -279,7 +279,7 @@ const initFormspree = () => {
       const data = new FormData(form);
 
       try {
-        const res = await fetch('https://formspree.io/f/mqngwwee', {
+        const res = await fetch('https://formspree.io/f/mqegwwwe', {
           method: 'POST',
           body: data,
           headers: { Accept: 'application/json' },
