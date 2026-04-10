@@ -554,13 +554,13 @@ summary:focus-visible,
 
 .pricing-addon,
 .pricing-retainer {
-  padding: 22px;
+  padding: 20px 22px;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   background: var(--bg-elevated);
   box-shadow: 0 8px 20px rgba(11, 15, 20, 0.04);
   display: grid;
-  gap: 8px;
+  gap: 10px;
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
@@ -574,11 +574,14 @@ summary:focus-visible,
 .pricing-retainer h4 {
   font-family: var(--font-heading);
   font-size: 1.2rem;
+  margin: 0;
 }
 
-.pricing-addon-price {
-  font-weight: 600;
-  color: var(--bymam-ink);
+.pricing-addon p,
+.pricing-retainer p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 .pricing-faq {
