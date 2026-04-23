@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | ByMam Studios</title>
+    <meta
+      name="description"
+      content="Start a conversation with ByMam Studios about your brand, platform, or digital infrastructure project."
+    />
+    <link rel="canonical" href="https://bymamstudios.com/contact/" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="../assets/css/work.css" />
+    <link rel="stylesheet" href="../assets/css/authority.css" />
+  </head>
+  <body>
+    <div class="page-gradient" aria-hidden="true"></div>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="logo" href="../index.html">By MAM Studios</a>
+        <div class="nav-links">
+          <a href="../insights/index.html" class="nav-link">Insights</a>
+          <a href="../work/index.html" class="nav-link">Work</a>
+          <a href="../brand-systems/index.html" class="nav-link">Services</a>
+          <a href="../index.html#approach" class="nav-link">Approach</a>
+          <a href="../index.html#about" class="nav-link">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section" aria-labelledby="contact-title">
+        <div class="hero-inner capability-hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Contact</p>
+            <h1 id="contact-title">Start a Project</h1>
+            <p class="hero-subtext">
+              Share your goals and timeline. We’ll follow up with next steps and a recommended
+              engagement path.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:contact@bymamstudios.com">Email the Studio</a>
+              <a class="btn btn-ghost capability-secondary-btn" href="../capabilities-deck/index.html">View Capabilities</a>
+            </div>
+            <form class="contact-form contact-form-page">
+              <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Your name" required maxlength="100" pattern="[A-Za-zÀ-ÿ\s'\.-]{2,100}" />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@email.com" required maxlength="254" />
+              </label>
+              <label>
+                What are you looking for?
+                <select name="intent" data-intent-select required>
+                  <option value="">Select one</option>
+                  <option value="modernization">Service Website Modernization (Audit)</option>
+                  <option value="new-build">New Website Build</option>
+                  <option value="branding-design">Branding / Design</option>
+                  <option value="automation-systems">Automation / Systems</option>
+                </select>
+              </label>
+              <div class="modernization-fields" data-modernization-fields hidden>
+                <label>
+                  Business Type
+                  <select name="business-type">
+                    <option value="">Select one</option>
+                    <option value="plumbing">Plumbing</option>
+                    <option value="electrical">Electrical</option>
+                    <option value="landscaping">Landscaping</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="auto">Auto</option>
+                    <option value="hvac">HVAC</option>
+                    <option value="other">Other</option>
+                  </select>
+                </label>
+                <label>
+                  Timeline
+                  <select name="timeline">
+                    <option value="">Select one</option>
+                    <option value="asap">ASAP</option>
+                    <option value="2-4-weeks">2–4 weeks</option>
+                    <option value="1-2-months">1–2 months</option>
+                    <option value="flexible">Flexible</option>
+                  </select>
+                </label>
+                <label>
+                  Budget Range
+                  <select name="budget-range">
+                    <option value="">Select one</option>
+                    <option value="under-1k">Under $1k</option>
+                    <option value="1-3k">$1–3k</option>
+                    <option value="3-7k">$3–7k</option>
+                    <option value="7k-plus">$7k+</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                Message
+                <textarea name="message" rows="4" placeholder="Tell us about your goals." required maxlength="2000"></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">Discuss a project</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <p>© <span id="year"></span> By MAM Studios.</p>
+      </div>
+      <div class="footer-links">
+        <a href="../insights/index.html">Insights</a>
+        <a href="../about-the-founder/index.html">Founder</a>
+        <a href="../capabilities-deck/index.html">Capabilities Deck</a>
+        <a href="../service-websites/index.html">Service Websites</a>
+        <a href="../contact/index.html?intent=modernization">Modernization Audit</a>
+        <a href="mailto:contact@bymamstudios.com">Email</a>
+        <a href="https://www.linkedin.com/in/michael-anthony-marino-40aba999">LinkedIn</a>
+      </div>
+    </footer>
+
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>

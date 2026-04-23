@@ -1,0 +1,349 @@
+const dataUrl = '/assets/data/site.json';
+
+const featuredGrid = document.getElementById('featured-grid');
+const projectsGrid = document.getElementById('projects-grid');
+const extrasGrid = document.getElementById('extras-grid');
+const mediaList = document.getElementById('media-list');
+const yearEl = document.getElementById('year');
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.getElementById('nav-links');
+const navLinkItems = document.querySelectorAll('.nav-link');
+const modal = document.getElementById('contact-modal');
+const modalOpenButtons = document.querySelectorAll('[data-modal-open]');
+const modalCloseButtons = document.querySelectorAll('[data-modal-close]');
+
+const projectCarousel = document.querySelector('[data-project-carousel]');
+const carouselTrack = projectCarousel?.querySelector('.carousel-track');
+const carouselPrev = projectCarousel?.querySelector('[data-carousel-prev]');
+const carouselNext = projectCarousel?.querySelector('[data-carousel-next]');
+
+const focusableSelectors =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex="0"]';
+let lastFocusedElement = null;
+
+const scrollToSection = (event) => {
+  if (!event.target.getAttribute('href')) {
+    return;
+  }
+  const href = event.target.getAttribute('href');
+  if (!href.startsWith('#')) {
+    return;
+  }
+  event.preventDefault();
+  const target = document.querySelector(href);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+const toggleNav = () => {
+  const isOpen = navLinks.classList.toggle('is-open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+};
+
+const openModal = () => {
+  if (!modal) {
+    return;
+  }
+  lastFocusedElement = document.activeElement;
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
+  const focusable = modal.querySelectorAll(focusableSelectors);
+  if (focusable.length) {
+    focusable[0].focus();
+  }
+  document.body.style.overflow = 'hidden';
+};
+
+const closeModal = () => {
+  if (!modal) {
+    return;
+  }
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
+  document.body.style.overflow = '';
+};
+
+const handleKeydown = (event) => {
+  if (!modal) {
+    return;
+  }
+  if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+    closeModal();
+  }
+
+  if (event.key === 'Tab' && modal.classList.contains('is-open')) {
+    const focusable = [...modal.querySelectorAll(focusableSelectors)];
+    if (!focusable.length) {
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+};
+
+const renderFeatured = (featured) => {
+  if (!featuredGrid) {
+    return;
+  }
+  featuredGrid.innerHTML = featured
+    .map(
+      (item) => `
+      <a class="feature-card ${item.color} card-reveal" href="./work/project.html?slug=${item.slug}">
+        <span class="tag">Featured</span>
+        <h3>${item.name}</h3>
+        <p>${item.subtitle}</p>
+        <span class="media-arrow">→</span>
+      </a>`
+    )
+    .join('');
+};
+
+const pickIcon = (category) => {
+  const mapping = {
+    Brand: '✺',
+    Media: '✦',
+    Operations: '⬢',
+    System: '⌘',
+    Web: '◆'
+  };
+  const key = Object.keys(mapping).find((item) => category.includes(item));
+  return mapping[key] || '✶';
+};
+
+const renderProjects = (projects) => {
+  if (!projectsGrid) {
+    return;
+  }
+  projectsGrid.innerHTML = projects
+    .map(
+      (project) => `
+      <a class="project-card card-reveal" href="./work/project.html?slug=${project.slug}">
+        <div class="project-meta">
+          <span class="tag">${project.category}</span>
+          <span class="project-icon">${pickIcon(project.category)}</span>
+        </div>
+        <h3>${project.name}</h3>
+        <p>${project.subtitle}</p>
+        <span class="media-arrow">→</span>
+      </a>`
+    )
+    .join('');
+};
+
+const renderExtras = (extras) => {
+  if (!extrasGrid) {
+    return;
+  }
+  extrasGrid.innerHTML = extras
+    .map(
+      (item) => `
+      <a class="extra-card card-reveal" href="${item.href}" target="_blank" rel="noreferrer">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        <span class="media-arrow">→</span>
+      </a>`
+    )
+    .join('');
+};
+
+const renderMedia = (media) => {
+  if (!mediaList) {
+    return;
+  }
+  mediaList.innerHTML = media
+    .map(
+      (item) => `
+      <a class="media-item card-reveal" href="${item.href}" target="_blank" rel="noreferrer">
+        <div>
+          <strong>${item.title}</strong>
+          <span>${item.desc}</span>
+        </div>
+        <span class="media-arrow">↗</span>
+      </a>`
+    )
+    .join('');
+};
+
+
+const scrollCarouselByCard = (direction = 1) => {
+  if (!carouselTrack) {
+    return;
+  }
+  const card = carouselTrack.querySelector('.project-carousel-card');
+  const cardWidth = card ? card.getBoundingClientRect().width : 320;
+  const styles = window.getComputedStyle(carouselTrack);
+  const gap = Number.parseFloat(styles.columnGap || styles.gap || '24') || 24;
+  carouselTrack.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+};
+
+const handleCarouselKeydown = (event) => {
+  if (!carouselTrack) {
+    return;
+  }
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault();
+    scrollCarouselByCard(-1);
+  }
+  if (event.key === 'ArrowRight') {
+    event.preventDefault();
+    scrollCarouselByCard(1);
+  }
+};
+
+const updateActiveLink = () => {
+  const sections = ['capabilities', 'approach', 'pricing', 'about'];
+  const scrollPosition = window.scrollY + 200;
+  sections.forEach((sectionId) => {
+    const section = document.getElementById(sectionId);
+    const link = document.querySelector(`a[href="#${sectionId}"]`);
+    if (!section || !link) {
+      return;
+    }
+    const inView =
+      scrollPosition >= section.offsetTop &&
+      scrollPosition < section.offsetTop + section.offsetHeight;
+    link.classList.toggle('is-active', inView);
+  });
+};
+
+const initObserver = () => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  document.querySelectorAll('.card-reveal').forEach((el) => observer.observe(el));
+};
+
+
+const initContactIntentForms = () => {
+  const forms = document.querySelectorAll('.contact-form');
+  if (!forms.length) {
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const hasModernizationIntent = params.get('intent') === 'modernization';
+
+  forms.forEach((form) => {
+    const intentSelect = form.querySelector('[data-intent-select]');
+    const modernizationFields = form.querySelector('[data-modernization-fields]');
+    if (!intentSelect || !modernizationFields) {
+      return;
+    }
+
+    const updateModernizationFields = () => {
+      const isModernization = intentSelect.value === 'modernization';
+      modernizationFields.hidden = !isModernization;
+    };
+
+    if (hasModernizationIntent) {
+      intentSelect.value = 'modernization';
+    }
+
+    updateModernizationFields();
+    intentSelect.addEventListener('change', updateModernizationFields);
+  });
+};
+
+const initFormspree = () => {
+  const forms = document.querySelectorAll('.contact-form');
+  if (!forms.length) return;
+
+  forms.forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      const data = new FormData(form);
+      if ((data.get('website') || '').toString().trim()) {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        return;
+      }
+
+      try {
+        const res = await fetch('https://formspree.io/f/mqegwwwe', {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+          form.innerHTML = `
+            <div style="text-align:center; padding: 2rem 0;">
+              <p style="font-size:1.1rem; font-weight:600; color: var(--color-text, #fff);">Message received.</p>
+              <p style="opacity:0.7; margin-top:0.5rem; color: var(--color-text, #fff);">We'll follow up within 1–2 business days.</p>
+            </div>`;
+        } else {
+          throw new Error('Formspree error');
+        }
+      } catch {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        alert('Something went wrong. Please email contact@bymamstudios.com directly.');
+      }
+    });
+  });
+};
+
+fetch(dataUrl)
+  .then((response) => response.json())
+  .then((data) => {
+    renderFeatured(data.featured);
+    renderProjects(data.projects);
+    renderExtras(data.extras);
+    renderMedia(data.media);
+    yearEl.textContent = new Date().getFullYear();
+    requestAnimationFrame(initObserver);
+  })
+  .catch(() => {
+    if (featuredGrid) {
+      featuredGrid.innerHTML = '<p>Unable to load featured work.</p>';
+    }
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  });
+
+navLinkItems.forEach((link) => link.addEventListener('click', scrollToSection));
+window.addEventListener('scroll', updateActiveLink);
+window.addEventListener('load', updateActiveLink);
+initContactIntentForms();
+initFormspree();
+
+if (navToggle) {
+  navToggle.addEventListener('click', toggleNav);
+}
+
+modalOpenButtons.forEach((button) => button.addEventListener('click', openModal));
+modalCloseButtons.forEach((button) => button.addEventListener('click', closeModal));
+window.addEventListener('keydown', handleKeydown);
+
+
+if (carouselPrev && carouselNext && carouselTrack) {
+  carouselPrev.addEventListener('click', () => scrollCarouselByCard(-1));
+  carouselNext.addEventListener('click', () => scrollCarouselByCard(1));
+  carouselTrack.addEventListener('keydown', handleCarouselKeydown);
+}
