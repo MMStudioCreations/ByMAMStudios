@@ -1,0 +1,29 @@
+# By MAM Studio
+
+By MAM Studio is an AI systems and brand consulting studio founded by Michael A. Marino, based in New York City (Hoboken, NJ). We build AI implementation programs, productized websites, and brand infrastructure for small businesses and operators.
+
+## What We Do
+
+- **AI Audit & Roadmap**: Scored diagnostic across 6 maturity dimensions with 90-day transformation roadmap
+- **AI Implementation Sprints**: 30-75 day programs implementing AI across marketing, HR, or operations functions
+- **Custom Claude Skills Library Builds**: Architecting and deploying custom skills libraries for organizations
+- **AI Operations Retainer**: Ongoing maintenance for deployed AI systems
+- **Brand & Web Systems**: Productized website builds and brand infrastructure
+
+## Products
+
+- **The AI Marketing Engine Playbook** ($149): 9-module AI marketing operating system with 50-prompt library
+- **AI Readiness Scorecard & Transformation Roadmap** ($249): 6-dimension diagnostic with 365-day roadmap
+- **AI for HR & People Operations Playbook** ($99): Complete HR AI transformation framework and implementation guide
+- **The Claude Skills Architecture Playbook** ($199): Methodology for building custom Claude skills libraries
+
+## Contact
+
+- Email: hello@bymamstudio.com
+- Website: https://bymamstudio.com
+- Parent company: Avoren Group (https://avorengroup.com)
+- Location: NYC Metro / Remote US
+
+## Founder
+
+Michael A. Marino — multi-venture founder, AI systems architect, budgeting and accounting professional at New York Life Insurance Company. Creator of the AI governance frameworks and HR COE deployment models used in By MAM Studio's product catalog.
