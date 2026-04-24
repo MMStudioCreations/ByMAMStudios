@@ -12,6 +12,8 @@ import Contact from './pages/Contact.jsx'
 import Resources from './pages/Resources.jsx'
 import ResourceDetail from './pages/ResourceDetail.jsx'
 import Assessment from './pages/Assessment.jsx'
+import Work from './pages/Work.jsx'
+import WorkDetail from './pages/WorkDetail.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -36,6 +38,8 @@ export default function App() {
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/:slug" element={<ResourceDetail />} />
           <Route path="/assessment" element={<Assessment />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:slug" element={<WorkDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

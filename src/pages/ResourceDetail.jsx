@@ -9,6 +9,24 @@ import { RESOURCES } from '../data/resources.js'
 import { PRODUCTS } from '../data/products.js'
 import { SERVICES } from '../data/services.js'
 
+function ArticleContent({ content }) {
+  const blocks = content.split('\n\n').filter(Boolean)
+  return (
+    <div className="space-y-5 font-body text-stone leading-relaxed">
+      {blocks.map((block, i) => {
+        if (block.startsWith('## ')) {
+          return (
+            <h2 key={i} className="font-display text-warm text-2xl font-semibold mt-10 mb-2">
+              {block.replace('## ', '')}
+            </h2>
+          )
+        }
+        return <p key={i}>{block}</p>
+      })}
+    </div>
+  )
+}
+
 function PlaceholderContent({ resource }) {
   return (
     <div className="space-y-6 font-body text-stone leading-relaxed">
@@ -103,7 +121,7 @@ export default function ResourceDetail() {
 
         <div className="mb-16">
           {resource.content
-            ? <div className="font-body text-stone leading-relaxed whitespace-pre-wrap">{resource.content}</div>
+            ? <ArticleContent content={resource.content} />
             : <PlaceholderContent resource={resource} />
           }
         </div>

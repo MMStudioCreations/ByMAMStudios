@@ -4,7 +4,7 @@ import SEOHead from '../components/SEOHead.jsx'
 import SectionLabel from '../components/SectionLabel.jsx'
 import { RESOURCES } from '../data/resources.js'
 
-const CATEGORIES = ['All', 'Guide', 'Explainer', 'How-To', 'Local Guide']
+const CATEGORIES = ['All', 'Guide', 'Explainer', 'How-To', 'Local Guide', 'Pillar', 'Insight', 'Report']
 
 export default function Resources() {
   const [filter, setFilter] = useState('All')

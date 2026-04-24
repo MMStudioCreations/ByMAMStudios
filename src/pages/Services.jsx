@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../components/SEOHead.jsx'
 import SectionLabel from '../components/SectionLabel.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
 import CTABanner from '../components/CTABanner.jsx'
 import { SERVICES } from '../data/services.js'
+
+const GROUPS = ['All', 'AI Systems', 'Brand', 'Web', 'Retainer']
 
 const PROCESS_PHASES = [
   { step: '01', title: 'Discovery', desc: 'We map your current state — workflows, tools, gaps, and goals. No assumptions.' },
@@ -13,11 +16,17 @@ const PROCESS_PHASES = [
 ]
 
 export default function Services() {
+  const [filter, setFilter] = useState('All')
+
+  const filtered = filter === 'All'
+    ? SERVICES
+    : SERVICES.filter((s) => s.group === filter)
+
   return (
     <>
       <SEOHead
-        title="AI Implementation Services | By MAM Studio | NYC"
-        description="AI Audit & Roadmap, Marketing AI Sprint, HR AI Sprint, Custom Claude Skills Library Build, and AI Operations Retainer. Fixed scope, fixed deliverables, trained internal operator included."
+        title="Services | By MAM Studio | NYC"
+        description="AI implementation, brand systems, digital experiences, and service website modernization. Fixed scope, fixed deliverables, trained internal operator included."
         canonical="https://bymamstudio.com/services"
       />
 
@@ -33,14 +42,33 @@ export default function Services() {
             Our Services
           </h1>
           <p className="font-body text-stone mt-4 max-w-2xl leading-relaxed">
-            Every engagement is fixed scope, fixed deliverable, and designed to leave you with an internal operator who can run the system without us. No retainers that depend on our continued involvement to function.
+            Two practice areas — AI Systems and Brand & Web — with a consistent standard: every engagement delivers a reusable system with a trained internal operator and full documentation.
           </p>
         </div>
       </div>
 
-      <section className="max-w-7xl mx-auto px-6 md:px-12 py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
+        <div className="flex gap-2 flex-wrap">
+          {GROUPS.map((g) => (
+            <button
+              key={g}
+              onClick={() => setFilter(g)}
+              className={`font-mono px-4 py-1.5 rounded border transition-all ${
+                filter === g
+                  ? 'border-gold bg-gold/10 text-gold'
+                  : 'border-border/60 text-slate hover:text-stone hover:border-stone/50'
+              }`}
+              style={{ fontSize: '11px' }}
+            >
+              {g}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <section className="max-w-7xl mx-auto px-6 md:px-12 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((service) => (
+          {filtered.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
         </div>

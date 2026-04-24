@@ -8,6 +8,9 @@ import ServiceCard from '../components/ServiceCard.jsx'
 import CTABanner from '../components/CTABanner.jsx'
 import { PRODUCTS } from '../data/products.js'
 import { SERVICES } from '../data/services.js'
+import { WORK } from '../data/work.js'
+
+const WORK_PREVIEW = WORK.filter((p) => !p.comingSoon).slice(0, 3)
 
 export default function Home() {
   return (
@@ -147,18 +150,78 @@ export default function Home() {
       <section className="py-24 px-6 md:px-12 bg-surface/50">
         <div className="max-w-7xl mx-auto">
           <SectionLabel>SERVICES</SectionLabel>
-          <h2 className="font-display text-white font-semibold mb-12" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.625rem)' }}>
-            Five Ways We Work Together
+          <h2 className="font-display text-white font-semibold mb-4" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.625rem)' }}>
+            How We Work Together
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {SERVICES.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
-            ))}
+          <p className="font-body text-stone mb-12 max-w-xl leading-relaxed">
+            Two practice areas. One standard: every engagement delivers a reusable system with a trained internal operator.
+          </p>
+
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="font-mono text-gold uppercase" style={{ fontSize: '10px', letterSpacing: '0.15em' }}>AI SYSTEMS</span>
+              <div className="h-px bg-gold/20 flex-1" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SERVICES.filter((s) => s.group === 'AI Systems').map((service) => (
+                <ServiceCard key={service.slug} service={service} />
+              ))}
+            </div>
           </div>
+
+          <div className="mb-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="font-mono text-gold uppercase" style={{ fontSize: '10px', letterSpacing: '0.15em' }}>BRAND & WEB</span>
+              <div className="h-px bg-gold/20 flex-1" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SERVICES.filter((s) => s.group === 'Brand' || s.group === 'Web').map((service) => (
+                <ServiceCard key={service.slug} service={service} />
+              ))}
+            </div>
+          </div>
+
           <Link to="/services" className="font-body text-gold hover:text-goldlt transition-colors text-sm">
             View All Services →
           </Link>
         </div>
+      </section>
+
+      {/* WORK PREVIEW */}
+      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <SectionLabel>PORTFOLIO</SectionLabel>
+        <h2 className="font-display text-white font-semibold mb-3" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.625rem)' }}>
+          Active Work
+        </h2>
+        <p className="font-body text-stone mb-12 max-w-xl leading-relaxed">
+          Select engagements across brand systems, digital experiences, and infrastructure design.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {WORK_PREVIEW.map((project) => (
+            <Link
+              key={project.slug}
+              to={`/work/${project.slug}`}
+              className="bg-card border border-border rounded-lg p-6 flex flex-col gap-4 hover:border-gold/40 transition-colors group"
+            >
+              <span
+                className="font-mono border w-fit px-2 py-0.5 rounded"
+                style={{ fontSize: '10px', color: project.color, borderColor: `${project.color}44` }}
+              >
+                {project.category}
+              </span>
+              <h3 className="font-display text-warm text-lg font-semibold leading-snug group-hover:text-white transition-colors">
+                {project.name}
+              </h3>
+              <p className="font-body text-stone text-sm leading-relaxed flex-1">{project.subtitle}</p>
+              <span className="font-mono text-gold group-hover:text-goldlt transition-colors" style={{ fontSize: '11px' }}>
+                View Case →
+              </span>
+            </Link>
+          ))}
+        </div>
+        <Link to="/work" className="font-body text-gold hover:text-goldlt transition-colors text-sm">
+          View Full Portfolio →
+        </Link>
       </section>
 
       {/* PRODUCT CATALOG */}

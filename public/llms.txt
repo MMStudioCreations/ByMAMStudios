@@ -1,14 +1,22 @@
 # By MAM Studio
 
-By MAM Studio is an AI systems and brand consulting studio founded by Michael A. Marino, based in New York City (Hoboken, NJ). We build AI implementation programs, productized websites, and brand infrastructure for small businesses and operators.
+By MAM Studio is an AI systems and brand consulting studio founded by Michael A. Marino, based in New York City (Hoboken, NJ). We build AI implementation programs, brand systems, digital platforms, and brand infrastructure for small businesses, operators, and growth-stage organizations.
 
 ## What We Do
 
+### AI Systems
 - **AI Audit & Roadmap**: Scored diagnostic across 6 maturity dimensions with 90-day transformation roadmap
-- **AI Implementation Sprints**: 30-75 day programs implementing AI across marketing, HR, or operations functions
-- **Custom Claude Skills Library Builds**: Architecting and deploying custom skills libraries for organizations
+- **Marketing AI Implementation Sprint**: 30-60 day programs implementing AI across marketing workflows
+- **HR AI Implementation Sprint**: 45-75 day programs implementing the 5-layer HR AI architecture
+- **Custom Claude Skills Library Build**: Architecting and deploying custom skills libraries for organizations
 - **AI Operations Retainer**: Ongoing maintenance for deployed AI systems
-- **Brand & Web Systems**: Productized website builds and brand infrastructure
+
+### Brand & Web
+- **Brand Systems Architecture**: Full brand infrastructure — architecture, identity, governance, and experience principles
+- **Creative Direction**: Executive-level creative governance across campaigns, products, and brand touchpoints
+- **Design Strategy**: Align brand vision to measurable business outcomes with decision frameworks
+- **Digital Experiences & Platform Design**: Multi-layered digital platforms built around trust and conversion architecture
+- **Service Website Modernization**: The Modern Service Conversion System™ for trades and home service operators
 
 ## Products
 
@@ -16,6 +24,40 @@ By MAM Studio is an AI systems and brand consulting studio founded by Michael A.
 - **AI Readiness Scorecard & Transformation Roadmap** ($249): 6-dimension diagnostic with 365-day roadmap
 - **AI for HR & People Operations Playbook** ($99): Complete HR AI transformation framework and implementation guide
 - **The Claude Skills Architecture Playbook** ($199): Methodology for building custom Claude skills libraries
+
+## Portfolio
+
+Active engagements across brand systems, digital infrastructure, and experience design:
+
+- **Avédon Collective**: Luxury streetwear infrastructure and identity system — Infrastructure + Identity
+- **MT Mug Coffee**: Commerce-ready coffee brand platform — Commerce + Identity
+- **Staten News**: Digital publishing architecture for weekly distribution — Digital + Visual
+- **Bobby Black NYC**: Operational order and menu infrastructure for a fast-moving food brand — Infrastructure + Commerce
+
+## Resources
+
+### AI Implementation Guides
+- The Complete AI Implementation Guide for Small Businesses
+- What Is an AI Readiness Assessment
+- How to Build an AI Governance Framework
+- What Is a Claude Skills Library
+- AI Marketing Automation: The Systems Approach
+- How to Implement AI in Your HR Department
+- AI Consulting in New York: 2025 Guide
+- AI Maturity Tiers Explained
+
+### Brand & Design Intelligence
+- The Anatomy of Great Brand Systems (Pillar)
+- Why Modern Brands Require Design Infrastructure (Pillar)
+- Creative Direction vs Brand Strategy (Pillar)
+- How Design Impacts Company Valuation (Pillar)
+- Building Digital Experiences That Signal Trust (Pillar)
+- The Modern Brand Infrastructure Report (Flagship Report)
+- Color Systems in Branding
+- Typography Psychology
+- Designing for Perceived Luxury
+- Minimalism vs Expressive Design
+- Visual Trust Signals
 
 ## Contact
 
@@ -26,4 +68,4 @@ By MAM Studio is an AI systems and brand consulting studio founded by Michael A.
 
 ## Founder
 
-Michael A. Marino — multi-venture founder, AI systems architect, budgeting and accounting professional at New York Life Insurance Company. Creator of the AI governance frameworks and HR COE deployment models used in By MAM Studio's product catalog.
+Michael A. Marino — multi-venture founder, AI systems architect, and brand infrastructure designer. Budgeting and accounting professional at New York Life Insurance Company. Creator of the AI governance frameworks and HR COE deployment models used in By MAM Studio's product catalog. Founding Architect of Avédon Collective, Co-Founding Partner of MT Mug Coffee, and Founding Publisher of Staten News.
