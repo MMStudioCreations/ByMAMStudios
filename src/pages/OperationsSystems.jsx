@@ -293,7 +293,7 @@ export default function OperationsSystems() {
                 </ul>
 
                 <a
-                  href={`mailto:hello@bymamstudio.com?subject=Operations Systems — ${tier.name}`}
+                  href={`mailto:hello@bymamstudio.com?subject=${encodeURIComponent(`Operations Systems — ${tier.name}`)}`}
                   className="block w-full text-center font-body text-sm font-semibold py-3 rounded transition-all duration-200 mt-2"
                   style={
                     tier.featured
