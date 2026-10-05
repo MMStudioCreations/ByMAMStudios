@@ -29,6 +29,32 @@ export default function ServiceDetail() {
         title={service.seoTitle || `${service.name} | By MAM Studio`}
         description={service.seoDescription || service.description}
         canonical={`https://bymamstudio.com/services/${service.slug}`}
+        jsonLd={[
+          {
+            '@type': 'Service',
+            name: service.name,
+            description: service.description,
+            serviceType: service.group,
+            provider: { '@id': 'https://bymamstudio.com/#organization' },
+            areaServed: ['New York City metro', 'New Jersey', 'United States'],
+            url: `https://bymamstudio.com/services/${service.slug}`,
+          },
+          ...(service.faq?.length
+            ? [{
+                '@type': 'FAQPage',
+                mainEntity: service.faq.map((f) => ({
+                  '@type': 'Question',
+                  name: f.q,
+                  acceptedAnswer: { '@type': 'Answer', text: f.a },
+                })),
+              }]
+            : []),
+        ]}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Services', path: '/services' },
+          { name: service.name, path: `/services/${service.slug}` },
+        ]}
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
@@ -126,17 +152,14 @@ export default function ServiceDetail() {
             ))}
           </div>
 
-          {activeTab === 'overview' && (
-            <div className="max-w-2xl">
+          <div hidden={activeTab !== 'overview'} className="max-w-2xl">
               <p className="font-body text-stone leading-relaxed mb-6">{service.longDescription}</p>
               <p className="font-body text-stone leading-relaxed">
                 Every By MAM Studio engagement ends with a trained internal operator, full documentation, and a maintenance protocol. You don't need us to keep the system running — that's by design.
               </p>
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'process' && (
-            <div className="space-y-4 max-w-2xl">
+          <div hidden={activeTab !== 'process'} className="space-y-4 max-w-2xl">
               {service.process.map((step) => (
                 <div key={step.step} className="flex gap-5 bg-card border border-border rounded-lg p-5">
                   <span
@@ -151,11 +174,9 @@ export default function ServiceDetail() {
                   </div>
                 </div>
               ))}
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'deliverables' && (
-            <div className="max-w-2xl">
+          <div hidden={activeTab !== 'deliverables'} className="max-w-2xl">
               <ul className="space-y-3">
                 {service.deliverables.map((d, i) => (
                   <li key={i} className="flex items-start gap-3 font-body text-stone text-sm leading-relaxed bg-card border border-border rounded-lg px-5 py-4">
@@ -164,22 +185,18 @@ export default function ServiceDetail() {
                   </li>
                 ))}
               </ul>
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'whofrom' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl">
+          <div hidden={activeTab !== 'whofrom'} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl">
               {service.whoFor.map((wf) => (
                 <div key={wf.title} className="bg-card border border-border rounded-lg p-6">
                   <h3 className="font-body text-warm font-semibold text-sm mb-3">{wf.title}</h3>
                   <p className="font-body text-stone text-xs leading-relaxed">{wf.desc}</p>
                 </div>
               ))}
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'faq' && (
-            <div className="space-y-4 max-w-2xl">
+          <div hidden={activeTab !== 'faq'} className="space-y-4 max-w-2xl">
               {service.faq.map((item) => (
                 <details key={item.q} className="bg-card border border-border rounded-lg px-5 py-4 group">
                   <summary className="font-body text-warm font-medium text-sm cursor-pointer list-none flex items-center justify-between">
@@ -189,8 +206,7 @@ export default function ServiceDetail() {
                   <p className="font-body text-stone text-sm mt-3 leading-relaxed">{item.a}</p>
                 </details>
               ))}
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </>

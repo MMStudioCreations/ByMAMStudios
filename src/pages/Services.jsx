@@ -28,6 +28,7 @@ export default function Services() {
         title="Services | By MAM Studio | NYC"
         description="AI implementation, brand systems, digital experiences, and service website modernization. Fixed scope, fixed deliverables, trained internal operator included."
         canonical="https://bymamstudio.com/services"
+        breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }]}
       />
 
       <div className="bg-navy border-b border-border py-16 px-6 md:px-12">

@@ -16,6 +16,7 @@ import Assessment from './pages/Assessment.jsx'
 import Work from './pages/Work.jsx'
 import WorkDetail from './pages/WorkDetail.jsx'
 import NotFound from './pages/NotFound.jsx'
+import SiteSchema from './components/SiteSchema.jsx'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-ink text-warm font-body">
+      <SiteSchema />
       <Nav />
       <main className="flex-1">
         <Routes>

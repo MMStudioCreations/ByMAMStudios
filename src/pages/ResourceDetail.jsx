@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEOHead from '../components/SEOHead.jsx'
 import GoldRule from '../components/GoldRule.jsx'
 import SectionLabel from '../components/SectionLabel.jsx'
 import ProductCard from '../components/ProductCard.jsx'
@@ -68,29 +68,35 @@ export default function ResourceDetail() {
   const relatedServices = SERVICES.filter((s) => resource.relatedServices?.includes(s.slug))
   const primaryProduct = relatedProducts[0]
 
-  const articleSchema = JSON.stringify({
-    '@context': 'https://schema.org',
+  const url = `https://bymamstudio.com/resources/${resource.slug}`
+  const articleSchema = {
     '@type': 'Article',
     headline: resource.title,
     description: resource.metaDescription,
-    author: { '@type': 'Person', name: 'Michael A. Marino' },
-    publisher: { '@type': 'Organization', name: 'By MAM Studio' },
+    author: { '@id': 'https://bymamstudio.com/#founder' },
+    publisher: { '@id': 'https://bymamstudio.com/#organization' },
     datePublished: resource.publishDate,
-    url: `https://bymamstudio.com/resources/${resource.slug}`,
-  })
+    dateModified: resource.updatedDate || resource.publishDate,
+    mainEntityOfPage: url,
+    image: 'https://bymamstudio.com/og-image.png',
+    url,
+  }
 
   return (
     <>
-      <Helmet>
-        <title>{resource.title} | By MAM Studio</title>
-        <meta name="description" content={resource.metaDescription} />
-        {resource.keywords && <meta name="keywords" content={resource.keywords.join(', ')} />}
-        <link rel="canonical" href={`https://bymamstudio.com/resources/${resource.slug}`} />
-        <meta property="og:title" content={resource.title} />
-        <meta property="og:description" content={resource.metaDescription} />
-        <meta property="og:type" content="article" />
-        <script type="application/ld+json">{articleSchema}</script>
-      </Helmet>
+      <SEOHead
+        title={`${resource.title} | By MAM Studio`}
+        description={resource.metaDescription}
+        keywords={resource.keywords}
+        canonical={url}
+        ogType="article"
+        jsonLd={articleSchema}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Resources', path: '/resources' },
+          { name: resource.title, path: `/resources/${resource.slug}` },
+        ]}
+      />
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 py-12">
         <div className="flex items-center gap-2 font-mono text-slate mb-8" style={{ fontSize: '11px' }}>
@@ -113,7 +119,7 @@ export default function ResourceDetail() {
         </h1>
 
         <p className="font-mono text-slate mb-8" style={{ fontSize: '11px' }}>
-          {new Date(resource.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          {new Date(resource.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
           {' · '}Michael A. Marino
         </p>
 
