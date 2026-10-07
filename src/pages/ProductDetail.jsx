@@ -27,7 +27,7 @@ export default function ProductDetail() {
     <>
       <SEOHead
         title={`${product.name} | By MAM Studio`}
-        description={product.description}
+        description={product.seoDescription || product.description}
         canonical={`https://bymamstudio.com/products/${product.slug}`}
         jsonLd={[
           {

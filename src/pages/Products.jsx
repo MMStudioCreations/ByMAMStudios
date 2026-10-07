@@ -26,7 +26,7 @@ export default function Products() {
     <>
       <SEOHead
         title="AI Intelligence Products | By MAM Studio"
-        description="Four professionally designed AI implementation products: The AI Marketing Engine Playbook ($149), AI Readiness Scorecard ($249), AI for HR Playbook ($99), and Claude Skills Architecture Playbook ($199)."
+        description="Four AI implementation playbooks: AI Marketing Engine ($149), AI Readiness Scorecard ($249), AI for HR ($99), and Claude Skills Architecture ($199)."
         canonical="https://bymamstudio.com/products"
         breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Products', path: '/products' }]}
       />

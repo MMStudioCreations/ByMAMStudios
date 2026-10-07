@@ -2,26 +2,26 @@ import { Link } from 'react-router-dom'
 import SectionLabel from './SectionLabel.jsx'
 import { SITE } from '../data/site.js'
 
-// Etsy digital-products line (planned). Everything marked [PLACEHOLDER] must be filled in
-// once the By MAM Studio Etsy shop and listings are live.
+// Etsy digital-products line. Prices match the upload-ready listings in
+// Avoren-Etsy/02_ByMAMStudio/listings.csv; update both together.
 const LINES = [
   {
     tag: 'AI SKILL BUNDLES',
     title: 'Claude Skill Bundles',
     body: 'Ready-to-install AI skill packs for common small-business workflows, built with the same method as our custom skills library engagements.',
-    price: '[PLACEHOLDER: price]',
+    price: 'From $24',
   },
   {
     tag: 'AEO STARTER KIT',
     title: 'AEO Starter Kit',
     body: 'A do-it-yourself kit for answer engine optimization: the structured data, FAQ patterns, and llms.txt setup that help AI assistants find and cite your business.',
-    price: '[PLACEHOLDER: price]',
+    price: '$39',
   },
   {
     tag: 'TEMPLATES',
     title: 'Business & Website Templates',
     body: 'Templates for operators who want a professional starting point without a full engagement.',
-    price: '[PLACEHOLDER: price]',
+    price: 'From $9',
   },
 ]
 

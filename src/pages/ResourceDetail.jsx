@@ -85,7 +85,7 @@ export default function ResourceDetail() {
   return (
     <>
       <SEOHead
-        title={`${resource.title} | By MAM Studio`}
+        title={`${resource.seoTitle || resource.title} | By MAM Studio`}
         description={resource.metaDescription}
         keywords={resource.keywords}
         canonical={url}
