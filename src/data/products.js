@@ -1,6 +1,7 @@
 export const PRODUCTS = [
   {
     slug: 'ai-marketing-engine',
+    seoDescription: 'Nine integrated AI marketing modules, from copy and SEO to paid ads and launch strategy, with a 90-day activation calendar and a 50-prompt master library.',
     name: 'The AI Marketing Engine Playbook',
     subtitle: 'A complete AI-powered operating system for marketing teams',
     category: 'PLAYBOOK',
@@ -61,6 +62,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'ai-readiness-scorecard',
+    seoDescription: 'Score your AI maturity across 6 dimensions, find your critical gaps, and build a 90/180/365-day roadmap, with an executive summary built for leadership buy-in.',
     name: 'AI Readiness Scorecard & Transformation Roadmap',
     subtitle: 'Diagnostic framework and 365-day transformation roadmap',
     category: 'FRAMEWORK',
@@ -120,6 +122,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'ai-hr-playbook',
+    seoDescription: 'A complete AI implementation guide for HR teams: governance, document standards, knowledge hub design, stakeholder communication, and a 365-day roadmap.',
     name: 'AI for HR & People Operations Playbook',
     subtitle: "The practitioner's operating manual for AI-driven HR transformation",
     category: 'PLAYBOOK',
@@ -181,6 +184,7 @@ export const PRODUCTS = [
   },
   {
     slug: 'claude-skills-playbook',
+    seoDescription: 'A complete method for building a custom Claude skills library: skill anatomy, trigger descriptions, workflow design, testing, and a 25-skill starter library.',
     name: 'The Claude Skills Architecture Playbook',
     subtitle: 'Design, write, and deploy a custom Claude skills library',
     category: 'SYSTEM',

@@ -1,6 +1,7 @@
 export const SERVICES = [
   {
     slug: 'ai-audit',
+    seoDescription: 'A scored AI diagnostic across 6 maturity dimensions, a prioritized gap analysis, and a 90-day roadmap, presented in a 60-minute executive session.',
     name: 'AI Audit & Roadmap',
     subtitle: 'Know exactly where you stand and what to do first',
     category: 'DIAGNOSTIC',
@@ -40,6 +41,7 @@ export const SERVICES = [
   },
   {
     slug: 'marketing-ai-sprint',
+    seoDescription: 'We implement AI across your copy, content calendar, ads, and email workflows, then train one operator to run it. Based on the AI Marketing Engine method.',
     name: 'Marketing AI Implementation Sprint',
     subtitle: 'A fully operational AI marketing system in 30-60 days',
     category: 'IMPLEMENTATION',
@@ -81,6 +83,7 @@ export const SERVICES = [
   },
   {
     slug: 'hr-ai-sprint',
+    seoDescription: 'We implement a 5-layer HR AI architecture: governance, knowledge hub, document standards, and communication systems. Based on the AI for HR Playbook.',
     name: 'HR AI Implementation Sprint',
     subtitle: 'Governed, documented, and partially automated in 60 days',
     category: 'IMPLEMENTATION',
@@ -122,6 +125,7 @@ export const SERVICES = [
   },
   {
     slug: 'skills-library-build',
+    seoDescription: 'We design and build a custom Claude skills library for your team, from workflow audit and architecture to writing, testing, and operator training.',
     name: 'Custom Claude Skills Library Build',
     subtitle: "Your organization's AI operating system, designed and deployed",
     category: 'SYSTEM BUILD',
@@ -164,6 +168,7 @@ export const SERVICES = [
   },
   {
     slug: 'ai-retainer',
+    seoDescription: 'Monthly upkeep for your AI systems: skills library updates, new workflows, quarterly reviews, and priority support, after any implementation engagement.',
     name: 'AI Operations Retainer',
     subtitle: 'Keep your AI systems sharp as your business evolves',
     category: 'RETAINER',
@@ -203,6 +208,7 @@ export const SERVICES = [
   },
   {
     slug: 'brand-systems',
+    seoDescription: 'We build your brand\'s structural and visual foundation (architecture, identity, governance, experience principles) as operating infrastructure.',
     name: 'Brand Systems Architecture',
     subtitle: 'The infrastructure that keeps your brand consistent as you scale',
     category: 'BRAND',
@@ -244,6 +250,7 @@ export const SERVICES = [
   },
   {
     slug: 'creative-direction',
+    seoDescription: 'Executive-level creative direction that turns brand strategy into one consistent visual standard across every output, from campaign briefs to interfaces.',
     name: 'Creative Direction',
     subtitle: 'Sustained creative governance across campaigns, products, and brand touchpoints',
     category: 'BRAND',
@@ -283,6 +290,7 @@ export const SERVICES = [
   },
   {
     slug: 'design-strategy',
+    seoDescription: 'Strategic design engagements that align brand positioning, product priorities, and growth goals into one framework for creative and operational decisions.',
     name: 'Design Strategy',
     subtitle: 'Align brand vision to measurable business outcomes with a decision framework',
     category: 'BRAND',
@@ -322,6 +330,7 @@ export const SERVICES = [
   },
   {
     slug: 'digital-experiences',
+    seoDescription: 'Multi-layered digital platforms that align brand perception with product value, balancing visual authority, product clarity, and conversion architecture.',
     name: 'Digital Experiences & Platform Design',
     subtitle: 'Craft digital experiences that signal trust and convert attention into action',
     category: 'WEB',
@@ -402,6 +411,7 @@ export const SERVICES = [
   },
   {
     slug: 'service-website-modernization',
+    seoDescription: 'Conversion-focused websites for plumbing, electrical, HVAC, landscaping, cleaning, and auto businesses, built on trust signals, SEO authority, and speed.',
     name: 'Service Website Modernization',
     subtitle: 'The Modern Service Conversion System™ — built for trades, home services, and local operators',
     category: 'WEB',
@@ -450,7 +460,7 @@ export const SERVICES = [
     priceRange: '$2,500 – $12,000+',
     duration: '3–10 weeks',
     color: '#6B8AF0',
-    seoTitle: 'Small Business Website Design & Digital Infrastructure | By MAM Studio',
+    seoTitle: 'Small Business Website Design & Infrastructure | By MAM Studio',
     seoDescription:
       'By MAM Studio builds professional websites, digital infrastructure, and automations for small businesses, solo entrepreneurs, and local service providers.',
     description:
