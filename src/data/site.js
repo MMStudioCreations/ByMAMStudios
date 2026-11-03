@@ -23,12 +23,12 @@ export const SITE = {
 if (SITE.etsyUrl) SITE.sameAs.push(SITE.etsyUrl)
 
 // Feature flags.
-// assessment: the free AI Readiness Assessment (/assessment) calls the Anthropic API straight
-// from the browser with no API key, so it fails for every visitor. It stays hidden (no links,
-// no prerendered page, /assessment -> /contact) until it runs through a server-side proxy
-// (e.g. a Pages Function holding the key as a secret). Set to true only after that.
+// assessment: the free AI Readiness Assessment (/assessment). The widget posts answers to the
+// Pages Function functions/api/assessment.js, which holds the Anthropic key as the secret
+// ANTHROPIC_API_KEY. Until that secret is set the widget shows "Assessment is warming up" and
+// links to /contact. Setting this to false hides it (no links, no page, /assessment -> /contact).
 export const FEATURES = {
-  assessment: false,
+  assessment: true,
 }
 
 export const absUrl = (path = '/') => (path === '/' ? `${SITE.url}/` : `${SITE.url}${path}`)

@@ -1,0 +1,11 @@
+# Cloudflare Pages project config (used by `wrangler pages deploy` and `wrangler pages dev`).
+# Secrets are not stored here: ANTHROPIC_API_KEY is set with
+#   npx wrangler pages secret put ANTHROPIC_API_KEY --project-name bymamstudios
+name = "bymamstudios"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-04-24"
+
+# Rate-limit counters for /api/assessment (functions/api/assessment.js).
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "2ea52c74026d4aa58e12a8d7a2f325ec"
