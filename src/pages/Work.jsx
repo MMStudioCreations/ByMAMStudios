@@ -20,6 +20,7 @@ export default function Work() {
         title="Work | By MAM Studio"
         description="Select engagements across brand systems, digital experiences, and design infrastructure. Active projects from the By MAM Studio portfolio."
         canonical="https://bymamstudio.com/work"
+        breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Work', path: '/work' }]}
       />
 
       <div className="bg-navy border-b border-border py-16 px-6 md:px-12">

@@ -56,6 +56,7 @@ export default function Contact() {
         title="Contact By MAM Studio — Start a Project or Ask a Question"
         description="For service inquiries, product questions, licensing, or consulting engagements. By MAM Studio responds to all inquiries within 1 business day."
         canonical="https://bymamstudio.com/contact"
+        breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]}
       />
 
       <div className="bg-navy border-b border-border py-16 px-6 md:px-12">

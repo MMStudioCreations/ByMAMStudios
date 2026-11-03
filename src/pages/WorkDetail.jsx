@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEOHead from '../components/SEOHead.jsx'
 import GoldRule from '../components/GoldRule.jsx'
 import SectionLabel from '../components/SectionLabel.jsx'
 import CTABanner from '../components/CTABanner.jsx'
@@ -14,14 +14,24 @@ export default function WorkDetail() {
 
   return (
     <>
-      <Helmet>
-        <title>{project.name} | By MAM Studio</title>
-        <meta name="description" content={project.subtitle} />
-        <link rel="canonical" href={`https://bymamstudio.com/work/${project.slug}`} />
-        <meta property="og:title" content={`${project.name} | By MAM Studio`} />
-        <meta property="og:description" content={project.subtitle} />
-        <meta property="og:type" content="article" />
-      </Helmet>
+      <SEOHead
+        title={`${project.name}: ${project.category} | By MAM Studio`}
+        description={project.subtitle}
+        canonical={`https://bymamstudio.com/work/${project.slug}`}
+        ogType="article"
+        jsonLd={{
+          '@type': 'CreativeWork',
+          name: project.name,
+          description: project.subtitle,
+          creator: { '@id': 'https://bymamstudio.com/#organization' },
+          url: `https://bymamstudio.com/work/${project.slug}`,
+        }}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Work', path: '/work' },
+          { name: project.name, path: `/work/${project.slug}` },
+        ]}
+      />
 
       <div className="bg-navy border-b border-border py-16 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">

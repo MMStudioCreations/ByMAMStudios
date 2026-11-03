@@ -19,6 +19,7 @@ export default function Resources() {
         title="AI Resources & Guides | By MAM Studio"
         description="Guides, frameworks, and explainers on AI implementation, governance, and systems thinking for business leaders and operators."
         canonical="https://bymamstudio.com/resources"
+        breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources' }]}
       />
 
       <div className="bg-navy border-b border-border py-16 px-6 md:px-12">

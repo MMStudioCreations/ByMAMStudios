@@ -2,6 +2,7 @@ import SEOHead from '../components/SEOHead.jsx'
 import SectionLabel from '../components/SectionLabel.jsx'
 import GoldRule from '../components/GoldRule.jsx'
 import CTABanner from '../components/CTABanner.jsx'
+import { FEATURES } from '../data/site.js'
 
 const VENTURES = [
   { name: "Avédon Collection", category: 'Streetwear', desc: 'Modern streetwear with bold design language and brand-led storytelling.' },
@@ -17,8 +18,9 @@ export default function About() {
     <>
       <SEOHead
         title="About By MAM Studio — AI Systems & Brand Consulting"
-        description="By MAM Studio is the consulting and products practice of Michael A. Marino — AI systems architect, HR COE leader at New York Life, and multi-venture founder based in Staten Island, New York."
+        description="By MAM Studio is the consulting practice of Michael A. Marino: AI systems architect, HR COE leader at New York Life, and founder based in Staten Island, NY."
         canonical="https://bymamstudio.com/about"
+        breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }]}
       />
 
       <div className="bg-navy border-b border-border py-16 px-6 md:px-12">
@@ -105,7 +107,7 @@ export default function About() {
 
       <CTABanner
         heading="Ready to work with the studio?"
-        subheading="Start with a free AI assessment or book a discovery call to discuss your project."
+        subheading={FEATURES.assessment ? 'Start with a free AI assessment or book a discovery call to discuss your project.' : 'Book a discovery call to discuss your project.'}
         ctaText="Book a Discovery Call"
         ctaHref="mailto:hello@bymamstudio.com?subject=Discovery Call Request"
       />

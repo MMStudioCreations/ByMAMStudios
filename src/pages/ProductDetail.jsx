@@ -27,8 +27,41 @@ export default function ProductDetail() {
     <>
       <SEOHead
         title={`${product.name} | By MAM Studio`}
-        description={product.description}
+        description={product.seoDescription || product.description}
         canonical={`https://bymamstudio.com/products/${product.slug}`}
+        jsonLd={[
+          {
+            '@type': 'Product',
+            name: product.name,
+            description: product.description,
+            category: product.category,
+            image: 'https://bymamstudio.com/og-image.png',
+            brand: { '@type': 'Brand', name: 'By MAM Studio' },
+            url: `https://bymamstudio.com/products/${product.slug}`,
+            offers: {
+              '@type': 'Offer',
+              price: String(product.price).replace(/[^0-9.]/g, ''),
+              priceCurrency: 'USD',
+              url: `https://bymamstudio.com/products/${product.slug}`,
+              seller: { '@id': 'https://bymamstudio.com/#organization' },
+            },
+          },
+          ...(product.faq?.length
+            ? [{
+                '@type': 'FAQPage',
+                mainEntity: product.faq.map((f) => ({
+                  '@type': 'Question',
+                  name: f.q,
+                  acceptedAnswer: { '@type': 'Answer', text: f.a },
+                })),
+              }]
+            : []),
+        ]}
+        breadcrumbs={[
+          { name: 'Home', path: '/' },
+          { name: 'Products', path: '/products' },
+          { name: product.name, path: `/products/${product.slug}` },
+        ]}
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
@@ -148,8 +181,7 @@ export default function ProductDetail() {
             ))}
           </div>
 
-          {activeTab === 'overview' && (
-            <div className="max-w-2xl">
+          <div hidden={activeTab !== 'overview'} className="max-w-2xl">
               <p className="font-body text-stone leading-relaxed mb-6">{product.longDescription}</p>
               <p className="font-body text-stone leading-relaxed mb-6">
                 This product is built for practitioners who need results, not theory. Every framework has been developed through real implementation work — not academic exercise. You pick it up, read it, and begin implementing from the first session.
@@ -158,11 +190,9 @@ export default function ProductDetail() {
                 <p className="font-mono text-gold uppercase mb-2" style={{ fontSize: '10px' }}>FIRST ACTION AFTER PURCHASE</p>
                 <p className="font-body text-stone text-sm leading-relaxed">{product.firstAction}</p>
               </div>
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'inside' && (
-            <div className="max-w-2xl">
+          <div hidden={activeTab !== 'inside'} className="max-w-2xl">
               <div className="space-y-4">
                 {product.modules.map((mod, i) => (
                   <div key={i} className="flex gap-4 bg-card border border-border rounded-lg p-5">
@@ -179,22 +209,18 @@ export default function ProductDetail() {
                   </div>
                 ))}
               </div>
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'whofrom' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl">
+          <div hidden={activeTab !== 'whofrom'} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl">
               {product.whoFor.map((wf) => (
                 <div key={wf.title} className="bg-card border border-border rounded-lg p-6">
                   <h3 className="font-body text-warm font-semibold text-sm mb-3">{wf.title}</h3>
                   <p className="font-body text-stone text-xs leading-relaxed">{wf.desc}</p>
                 </div>
               ))}
-            </div>
-          )}
+          </div>
 
-          {activeTab === 'faq' && (
-            <div className="space-y-4 max-w-2xl">
+          <div hidden={activeTab !== 'faq'} className="space-y-4 max-w-2xl">
               {product.faq.map((item) => (
                 <details key={item.q} className="bg-card border border-border rounded-lg px-5 py-4 group">
                   <summary className="font-body text-warm font-medium text-sm cursor-pointer list-none flex items-center justify-between">
@@ -204,8 +230,7 @@ export default function ProductDetail() {
                   <p className="font-body text-stone text-sm mt-3 leading-relaxed">{item.a}</p>
                 </details>
               ))}
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </>

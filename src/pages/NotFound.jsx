@@ -7,6 +7,7 @@ export default function NotFound() {
       <SEOHead
         title="404 — Page Not Found | By MAM Studio"
         description="The page you're looking for doesn't exist."
+        noindex
       />
       <div className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center max-w-md">

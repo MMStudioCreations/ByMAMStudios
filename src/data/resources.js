@@ -1,14 +1,14 @@
 export const RESOURCES = [
   {
     slug: 'ai-implementation-guide-small-business',
+    seoTitle: 'AI Implementation Guide for Small Businesses',
     title: 'The Complete AI Implementation Guide for Small Businesses',
     category: 'Guide',
     publishDate: '2025-04-01',
     readTime: '12 min read',
     excerpt:
       'Most small businesses approach AI adoption backwards — buying tools before building systems. This guide walks through the correct sequence: governance first, infrastructure second, automation third.',
-    metaDescription:
-      'A step-by-step guide to implementing AI in your small business — from governance and tool selection through workflow automation and team training. No technical background required.',
+    metaDescription: 'A step-by-step guide to implementing AI in a small business, from governance and tool selection to workflow automation and team training.',
     keywords: ['AI implementation small business', 'how to implement AI', 'AI for small business', 'AI systems for business', 'AI workflow automation'],
     content: '',
     relatedProducts: ['ai-readiness-scorecard', 'ai-marketing-engine'],
@@ -16,6 +16,7 @@ export const RESOURCES = [
   },
   {
     slug: 'what-is-ai-readiness-assessment',
+    seoTitle: 'What Is an AI Readiness Assessment?',
     title: 'What Is an AI Readiness Assessment — and Does Your Business Need One?',
     category: 'Explainer',
     publishDate: '2025-04-05',
@@ -31,14 +32,14 @@ export const RESOURCES = [
   },
   {
     slug: 'ai-governance-framework-small-business',
+    seoTitle: 'How to Build an AI Governance Framework',
     title: 'How to Build an AI Governance Framework for Your Business',
     category: 'How-To',
     publishDate: '2025-04-10',
     readTime: '9 min read',
     excerpt:
       'Ungoverned AI is faster and more dangerous than no AI. A governance framework defines who owns AI decisions, what AI can do, and how risks are managed. Here is how to build one in a day.',
-    metaDescription:
-      'A practical guide to building an AI governance framework for small and mid-market businesses — covering usage policies, ownership matrices, risk management, and compliance integration.',
+    metaDescription: 'How to build an AI governance framework for a small or mid-size business: usage policies, ownership matrices, risk management, and compliance.',
     keywords: ['AI governance framework', 'AI policy for business', 'AI governance small business', 'AI usage policy', 'AI risk management'],
     content: '',
     relatedProducts: ['ai-readiness-scorecard', 'ai-hr-playbook'],
@@ -46,6 +47,7 @@ export const RESOURCES = [
   },
   {
     slug: 'claude-skills-library-guide',
+    seoTitle: 'What Is a Claude Skills Library?',
     title: 'What Is a Claude Skills Library — and Why Should You Build One?',
     category: 'Explainer',
     publishDate: '2025-04-15',
@@ -61,14 +63,14 @@ export const RESOURCES = [
   },
   {
     slug: 'ai-marketing-automation-guide',
+    seoTitle: 'AI Marketing Automation: A Systems Approach',
     title: 'AI Marketing Automation: The Systems Approach to Consistent Output',
     category: 'Guide',
     publishDate: '2025-04-20',
     readTime: '10 min read',
     excerpt:
       'AI marketing automation is not about replacing your team — it is about removing the ceiling on their output. Here is how to build a marketing system that compounds rather than consuming time.',
-    metaDescription:
-      'How to build an AI-powered marketing system covering copy, content, ads, and email — with frameworks for brand consistency, prompt libraries, and a 90-day implementation calendar.',
+    metaDescription: 'How to build an AI marketing system for copy, content, ads, and email, with brand-consistency frameworks, prompt libraries, and a 90-day rollout calendar.',
     keywords: ['AI marketing automation', 'AI content creation', 'AI marketing system', 'AI for marketing teams', 'AI copywriting system'],
     content: '',
     relatedProducts: ['ai-marketing-engine'],
@@ -76,6 +78,7 @@ export const RESOURCES = [
   },
   {
     slug: 'hr-ai-implementation-guide',
+    seoTitle: 'How to Implement AI in HR: A Practitioner\'s Guide',
     title: "How to Implement AI in Your HR Department: A Practitioner's Guide",
     category: 'Guide',
     publishDate: '2025-04-25',
@@ -91,6 +94,7 @@ export const RESOURCES = [
   },
   {
     slug: 'ai-consulting-new-york',
+    seoTitle: 'AI Consulting in New York: What NYC Businesses Need',
     title: 'AI Consulting in New York: What NYC Businesses Need to Know in 2025',
     category: 'Local Guide',
     publishDate: '2025-05-01',
@@ -106,14 +110,14 @@ export const RESOURCES = [
   },
   {
     slug: 'ai-maturity-tiers-explained',
+    seoTitle: 'AI Maturity Tiers: Which Stage Is Your Business At?',
     title: 'AI Maturity Tiers Explained: Which Stage Is Your Business At?',
     category: 'Explainer',
     publishDate: '2025-05-05',
     readTime: '6 min read',
     excerpt:
       'The five AI maturity tiers — Uninitialized, Developing, Emerging, Scaling, and AI-Native — each require a different strategy. Knowing which tier you are in prevents the most expensive AI implementation mistake: building for the tier above you.',
-    metaDescription:
-      'Understand the five AI maturity tiers and what they mean for your business strategy. Learn what separates an Uninitialized organization from a Scaling one — and the exact sequence to move between them.',
+    metaDescription: 'The five AI maturity tiers explained: what separates an Uninitialized organization from a Scaling one, and the exact sequence to move between them.',
     keywords: ['AI maturity model', 'AI maturity tiers', 'AI maturity assessment', 'stages of AI adoption', 'AI maturity framework'],
     content: '',
     relatedProducts: ['ai-readiness-scorecard'],

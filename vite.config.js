@@ -7,4 +7,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
+  // The SSR (prerender) build bundles these CommonJS packages so Node can import them.
+  ssr: {
+    noExternal: ['react-helmet-async', 'react-router-dom', 'react-router', '@remix-run/router', '@heroicons/react'],
+  },
 })

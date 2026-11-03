@@ -67,7 +67,7 @@ export default function OperationsSystems() {
     <>
       <SEOHead
         title="Operations Systems | By MAM Studio"
-        description="We introduce and set up Coda for growing teams — replacing scattered docs, spreadsheets, and Slack threads with one governed system. Free discovery call for teams already using Coda."
+        description="We set up Coda for growing teams, replacing scattered docs, spreadsheets, and Slack threads with one governed system. Free discovery call for Coda teams."
         canonical="https://bymamstudio.com/services/operations-systems"
       />
 
