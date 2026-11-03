@@ -13,7 +13,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
 const ssrEntry = path.join(root, 'dist-ssr', 'entry-server.js')
 
-const { render, PRODUCTS, SERVICES, RESOURCES, WORK, FAQ, SITE } = await import(pathToFileURL(ssrEntry).href)
+const { render, PRODUCTS, SERVICES, RESOURCES, WORK, FAQ, SITE, FEATURES } = await import(pathToFileURL(ssrEntry).href)
 
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8')
 if (!template.includes('<!--app-head-->') || !template.includes('<!--app-html-->')) {
@@ -33,7 +33,7 @@ const routes = [
   ...RESOURCES.map((r) => ({ path: `/resources/${r.slug}`, priority: '0.7', lastmod: r.updatedDate || r.publishDate })),
   { path: '/about', priority: '0.8' },
   { path: '/contact', priority: '0.7' },
-  { path: '/assessment', priority: '0.6' },
+  ...(FEATURES.assessment ? [{ path: '/assessment', priority: '0.6' }] : []),
 ]
 
 function page(url) {
@@ -55,6 +55,10 @@ for (const r of routes) {
 }
 // Real 404 page (Pages serves it with HTTP 404 for unknown paths; no SPA catch-all).
 fs.writeFileSync(path.join(dist, '404.html'), page('/__not-found__'))
+// While the AI assessment is switched off (src/data/site.js FEATURES), send old links to /contact.
+if (!FEATURES.assessment) {
+  fs.appendFileSync(path.join(dist, '_redirects'), '\n# AI assessment hidden (FEATURES.assessment = false)\n/assessment /contact 302\n/assessment/ /contact 302\n')
+}
 
 // sitemap.xml
 const abs = (p) => (p === '/' ? `${SITE.url}/` : `${SITE.url}${p}`)
@@ -90,7 +94,7 @@ ${PRODUCTS.map((p) => `- [${p.name}](${abs(`/products/${p.slug}`)}): ${p.descrip
 
 ## Digital products (Etsy, planned)
 
-- AI skill bundles, an AEO (answer engine optimization) starter kit, and business/website templates. Shop: ${SITE.etsyUrl}
+- AI skill bundles, an AEO (answer engine optimization) starter kit, and business/website templates. ${SITE.etsyUrl ? `Shop: ${SITE.etsyUrl}` : 'The Etsy shop is not open yet.'}
 
 ## Frequently asked questions
 

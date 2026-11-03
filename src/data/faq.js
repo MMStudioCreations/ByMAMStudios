@@ -4,7 +4,7 @@
 // Anything marked [PLACEHOLDER] must be confirmed by Michael before deploy.
 import { SERVICES } from './services.js'
 import { PRODUCTS } from './products.js'
-import { SITE } from './site.js'
+import { SITE, FEATURES } from './site.js'
 
 const svc = (slug) => SERVICES.find((s) => s.slug === slug) || {}
 const lower = (p) => (p ? p.replace(/^From /, 'from ') : '[PLACEHOLDER: price]')
@@ -48,7 +48,7 @@ export const FAQ = [
   },
   {
     q: 'Does By MAM Studio sell digital products or templates?',
-    a: `Yes. The site sells four PDF playbooks and frameworks (${productRange}) covering AI marketing, AI readiness, AI for HR, and Claude skills architecture. A By MAM Studio Etsy shop for AI skill bundles, an AEO (answer engine optimization) starter kit, and templates is planned: ${SITE.etsyUrl}.`,
+    a: `Yes. The site sells four PDF playbooks and frameworks (${productRange}) covering AI marketing, AI readiness, AI for HR, and Claude skills architecture. A By MAM Studio Etsy shop for AI skill bundles, an AEO (answer engine optimization) starter kit, and templates ${SITE.etsyUrl ? `is open at ${SITE.etsyUrl}` : 'is planned'}.`,
   },
   {
     q: 'What is AEO (answer engine optimization)?',
@@ -60,6 +60,6 @@ export const FAQ = [
   },
   {
     q: 'How do I start a project with By MAM Studio?',
-    a: `Email ${SITE.email} or use the contact form at bymamstudio.com/contact to book a discovery call. If you are not sure what you need, start with the free AI Readiness Assessment at bymamstudio.com/assessment.`,
+    a: `Email ${SITE.email} or use the contact form at bymamstudio.com/contact to book a discovery call.${FEATURES.assessment ? ' If you are not sure what you need, start with the free AI Readiness Assessment at bymamstudio.com/assessment.' : ''}`,
   },
 ]

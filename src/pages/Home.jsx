@@ -9,6 +9,7 @@ import CTABanner from '../components/CTABanner.jsx'
 import DigitalProducts from '../components/DigitalProducts.jsx'
 import FAQSection, { faqSchema } from '../components/FAQSection.jsx'
 import { FAQ } from '../data/faq.js'
+import { FEATURES } from '../data/site.js'
 import { PRODUCTS } from '../data/products.js'
 import { SERVICES } from '../data/services.js'
 import { WORK } from '../data/work.js'
@@ -82,12 +83,21 @@ export default function Home() {
               >
                 View Our Services
               </Link>
+              {FEATURES.assessment ? (
               <Link
                 to="/assessment"
                 className="border border-gold text-gold font-body px-7 py-3 rounded transition-all duration-200 hover:bg-gold/10"
               >
                 Take the AI Assessment
               </Link>
+              ) : (
+              <Link
+                to="/contact"
+                className="border border-gold text-gold font-body px-7 py-3 rounded transition-all duration-200 hover:bg-gold/10"
+              >
+                Contact the Studio
+              </Link>
+              )}
             </div>
           </div>
         </div>
@@ -261,6 +271,7 @@ export default function Home() {
 
       <DigitalProducts />
 
+      {FEATURES.assessment && (<>
       {/* ASSESSMENT CTA */}
       <section className="relative bg-ink py-24 px-6 md:px-12 overflow-hidden" style={{ borderTop: '1px solid #C9A84C33', borderBottom: '1px solid #C9A84C33' }}>
         <DotGrid opacity={0.05} />
@@ -282,6 +293,7 @@ export default function Home() {
           </p>
         </div>
       </section>
+      </>)}
 
       {/* WHO WE SERVE */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
@@ -339,7 +351,7 @@ export default function Home() {
 
       <CTABanner
         heading="Ready to build your AI infrastructure?"
-        subheading="Start with a free assessment or book a discovery call."
+        subheading={FEATURES.assessment ? 'Start with a free assessment or book a discovery call.' : 'Book a free discovery call and we will scope the right next step.'}
         ctaText="Book a Discovery Call"
         ctaHref="mailto:hello@bymamstudio.com?subject=Discovery Call Request"
       />

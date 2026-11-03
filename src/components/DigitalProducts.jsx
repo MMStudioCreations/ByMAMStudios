@@ -34,8 +34,11 @@ export default function DigitalProducts() {
           AI Skill Bundles, AEO Kits &amp; Templates
         </h2>
         <p className="font-body text-stone mb-12 max-w-2xl leading-relaxed">
-          Self-serve digital products from By MAM Studio, sold through our Etsy shop
-          ({SITE.etsyUrl}). For the full PDF playbooks, see the <Link to="/products" className="text-gold hover:text-goldlt">product catalog</Link>.
+          Self-serve digital products from By MAM Studio,{' '}
+          {SITE.etsyUrl
+            ? <>sold through our <a href={SITE.etsyUrl} target="_blank" rel="noopener noreferrer" className="text-gold hover:text-goldlt">Etsy shop</a>.</>
+            : <>coming soon to our Etsy shop.</>}
+          {' '}For the full PDF playbooks, see the <Link to="/products" className="text-gold hover:text-goldlt">product catalog</Link>.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {LINES.map((l) => (

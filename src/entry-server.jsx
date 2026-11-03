@@ -10,9 +10,9 @@ import { SERVICES } from './data/services.js'
 import { RESOURCES } from './data/resources.js'
 import { WORK } from './data/work.js'
 import { FAQ } from './data/faq.js'
-import { SITE } from './data/site.js'
+import { SITE, FEATURES } from './data/site.js'
 
-export { PRODUCTS, SERVICES, RESOURCES, WORK, FAQ, SITE }
+export { PRODUCTS, SERVICES, RESOURCES, WORK, FAQ, SITE, FEATURES }
 
 export function render(url) {
   const helmetContext = {}

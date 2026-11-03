@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import SEOHead from '../components/SEOHead.jsx'
+import { FEATURES } from '../data/site.js'
 import GoldRule from '../components/GoldRule.jsx'
 import SectionLabel from '../components/SectionLabel.jsx'
 import NotFound from './NotFound.jsx'
@@ -114,12 +115,14 @@ export default function ServiceDetail() {
               >
                 {service.ctaText || 'Book a Discovery Call'}
               </a>
+              {FEATURES.assessment && (
               <Link
                 to="/assessment"
                 className="block w-full text-center border border-border text-slate font-body text-sm py-3 rounded hover:text-stone hover:border-stone/50 transition-all"
               >
                 Or take the free AI assessment first
               </Link>
+              )}
 
               <GoldRule className="my-4" />
 

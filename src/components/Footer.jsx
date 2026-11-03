@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { NAV_LINKS } from '../data/navigation.js'
+import { FEATURES } from '../data/site.js'
 
 export default function Footer() {
   return (
@@ -40,6 +41,7 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              {FEATURES.assessment && (
               <li>
                 <Link
                   to="/assessment"
@@ -48,6 +50,7 @@ export default function Footer() {
                   Assessment
                 </Link>
               </li>
+              )}
               <li>
                 <Link
                   to="/services/operations-systems"

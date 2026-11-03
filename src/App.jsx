@@ -17,6 +17,7 @@ import Work from './pages/Work.jsx'
 import WorkDetail from './pages/WorkDetail.jsx'
 import NotFound from './pages/NotFound.jsx'
 import SiteSchema from './components/SiteSchema.jsx'
+import { FEATURES } from './data/site.js'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -41,7 +42,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/:slug" element={<ResourceDetail />} />
-          <Route path="/assessment" element={<Assessment />} />
+          {FEATURES.assessment && <Route path="/assessment" element={<Assessment />} />}
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<WorkDetail />} />
           <Route path="*" element={<NotFound />} />

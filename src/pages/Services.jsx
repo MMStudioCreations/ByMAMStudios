@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SEOHead from '../components/SEOHead.jsx'
+import { FEATURES } from '../data/site.js'
 import SectionLabel from '../components/SectionLabel.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
 import CTABanner from '../components/CTABanner.jsx'
@@ -95,9 +96,9 @@ export default function Services() {
 
       <CTABanner
         heading="Not sure which service fits?"
-        subheading="Take the free AI Assessment — 18 questions, a Claude-powered analysis, and specific service recommendations matched to your situation."
-        ctaText="Take the Free Assessment"
-        ctaHref="/assessment"
+        subheading={FEATURES.assessment ? 'Take the free AI Assessment — 18 questions, a Claude-powered analysis, and specific service recommendations matched to your situation.' : 'Tell us about your business and we will point you to the right service on a free discovery call.'}
+        ctaText={FEATURES.assessment ? 'Take the Free Assessment' : 'Contact the Studio'}
+        ctaHref={FEATURES.assessment ? '/assessment' : '/contact'}
       />
     </>
   )
